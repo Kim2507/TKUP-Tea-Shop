@@ -64,6 +64,13 @@
 		</dependency>
 
 	<dependency>
+		<groupId>org.webjars</groupId>
+		<artifactId>bootstrap</artifactId>
+		<version>5.1.1</version>
+	</dependency>
+		
+
+	<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
@@ -71,7 +78,7 @@
 	
 		
 	</dependencies>
-
+	
 	<build>
 		<plugins>
 			<plugin>

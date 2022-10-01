@@ -6,14 +6,20 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.capstone.TeaShop.model.Cart;
+import com.capstone.TeaShop.model.ProductDetails;
 import com.capstone.TeaShop.model.User;
+import com.capstone.TeaShop.repository.CartRepository;
 import com.capstone.TeaShop.repository.UserRepository;
+import com.capstone.TeaShop.services.CartService;
 
 @Controller
 public class AppController {
-	@Autowired
-	private UserRepository user_repo;
 	
+	private UserRepository user_repo;
+	//private CartService cartService;
+	
+	private ProductDetails product1 = new ProductDetails("noodle","noddle",5.5,3); 
 	@GetMapping()
 	public String viewHomePage() {
 		return "home";
@@ -32,13 +38,34 @@ public class AppController {
 		return "register_success";
 	}
 	
-//	@GetMapping("/shopping")
-//	public String listUsers(Model model) {
-////	    List<User> listUsers = userRepo.findAll();
-////	    model.addAttribute("listUsers", listUsers);
-//	     
-//	    return "shopping";
-//	}
+	@GetMapping("/home")
+	public String showHomePage() {
+	    return "home";
+	}
+	
+	@GetMapping("/shopping")
+	public String listUsers(Model model) {
+	     
+	    return "shopping";
+	}
+	
+	
+	@GetMapping("/login")
+	public String showLoginPage() {
+	    return "login";
+	}
+	@GetMapping("/cart")
+	public String showCartPage() {
+	    return "cart";
+	}
+	
+	@GetMapping("/addingToCart")
+	public String addingItemToCart(ProductDetails product, Model model) {
+		product = product1;
+		//cartService.addItemToCart(product);
+		model.addAttribute("addedProduct",product);
+		return "cart";
+	}
 	
 	
 	

@@ -8,20 +8,24 @@ import javax.persistence.*;
 
 import lombok.*;
 
-@Getter
-@Setter
-@ToString
+
+@Data
 @Entity
 @Table(name="account")
 public class User implements Serializable{
 	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY )
+	//@GeneratedValue(strategy= GenerationType.IDENTITY )
 	private int uid;
 	
 	@Column(nullable=false, unique=true)
 	private String email;
 	@Column(nullable=false, unique=true)
 	private String password;
+	
+	@MapsId
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="customer_id")
+	private Customer customer;
 	
 	public User() {}
 

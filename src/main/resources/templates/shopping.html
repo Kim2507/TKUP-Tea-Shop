@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -17,15 +17,15 @@
       <h1>PRODUCT PAGE</h1>
       <nav>
         <ul>
-          <li class="active"><a href="../html/home.html">Home</a></li>
-          <li class="active"><a href="../html/product.html">Shop</a>
+          <li class="active"><a th:href="@{/home}">Home</a></li>
+          <li class="active"><a th:href="@{/shopping}">Shop</a>
             <div class="sub-menu-1">
                 <a class ="li" href="#">Tea Leaves</a>
                  <a class ="li" href="#">Tea Pots</a>
             </div>
           </li>
-          <li class="active"><a href="../html/login.html">Log In</a></li>
-          <li class="active"><a href="../html/cart.html">Cart</a></li>
+          <li class="active"><a th:href="@{/login}">Log In</a></li>
+          <li class="active"><a th:href="@{/cart}">Cart</a></li>
         </ul>
       </nav>
     </header>
@@ -36,17 +36,17 @@
       <div class ="row">
         <div class="column">
           <div class="title">LEMON GINGER</div>
-          <img class = "img" src="../images/lemon-ginger.png" alt="lemon-ginger">
-          <button onclick="alert('Successfully added to cart')";>ADD TO CART</button>
+          <img class = "img" th:src="@{/images/lemon-ginger.png}" alt="lemon-ginger">
+          <button onclick="alert('Successfully added to cart')" th:action="@{/addingToCart}" method="get" th:object=${product}>ADD TO CART</button>
         </div>
         <div class="column">
             <div class="title">CHAMOMILE</div>
-            <img class = "img" src="../images/chamomile.png" alt="lemon-ginger">
+            <img class = "img" th:src="@{/images/chamomile.png}" alt="lemon-ginger">
             <button onclick="alert('Successfully added to cart')";>ADD TO CART</button>
         </div>
         <div class="column">
           <div class="title">EARL GREY</div>
-          <img class = "img" src="../images/earlgrey.png" alt="lemon-ginger">
+          <img class = "img" th:src="@{/images/earlgrey.png}" alt="lemon-ginger">
           <button onclick="alert('Successfully added to cart')";>ADD TO CART</button>
         </div>
       </div>
@@ -54,12 +54,12 @@
       <div class ="row">
         <div class="column">
           <div class="title">GREEN TEA</div>
-          <img class = "img" src="../images/green_tea.png" alt="lemon-ginger">
+          <img class = "img" th:src="@{/images/green_tea.png}" alt="lemon-ginger">
           <button onclick="alert('Successfully added to cart')";>ADD TO CART</button>
         </div>
         <div class="column">
             <div class="title">HIBICUS</div>
-            <img class = "img" src="../images/hibicus.png" alt="lemon-ginger">
+            <img class = "img" th:src="@{/images/hibicus.png}" alt="lemon-ginger">
             <button onclick="alert('Successfully added to cart')";>ADD TO CART</button>
         </div>
         <div class="column">
@@ -72,17 +72,17 @@
       <div class ="row">
         <div class="column">
           <div class="title">BLACK TEA</div>
-          <img class = "img" src="../images/blacktea.jpg" alt="lemon-ginger">
+          <img class = "img" th:src="@{/images/blacktea.jpg}" alt="lemon-ginger">
           <button onclick="alert('Successfully added to cart')"; >ADD TO CART</button>
         </div>
         <div class="column">
             <div class="title">GEN MAI</div>
-            <img class = "img" src="../images/genmai.jpg" alt="lemon-ginger">
+            <img class = "img" th:src="@{/images/genmai.jpg}" alt="lemon-ginger">
             <button onclick="alert('Successfully added to cart')";>ADD TO CART</button>
         </div>
         <div class="column">
           <div class="title">WHITE TEA SAKURA</div>
-          <img class = "img" src="../images/whitetea.png" alt="lemon-ginger">
+          <img class = "img" th:src="@{/images/whitetea.png}" alt="lemon-ginger">
           <butto onclick="alert('Successfully added to cart')";n>ADD TO CART</butto>
         </div>
       </div>

@@ -1,35 +1,41 @@
 package com.capstone.TeaShop.model;
 
+import java.io.Serializable;
 import java.util.List;
+import lombok.*;
+import javax.persistence.*;
 
-
-//import javax.persistence.*;
-
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-@Getter
-@Setter
-@ToString
-//@Entity
-//@Table(name="cart")
-public class Cart {
-//	@Id
-//	@GeneratedValue(strategy= GenerationType.IDENTITY )
+@Data
+@Entity
+@Table(name="cart")
+public class Cart implements Serializable{
+	@Id
+	@GeneratedValue(strategy= GenerationType.IDENTITY )
 	private int cartId;
 	
-//	@OneToMany(targetEntity = Product.class ,cascade = {CascadeType.ALL})
-	private List<Product> products;
+	@OneToMany(cascade=CascadeType.ALL, mappedBy="cart", orphanRemoval=true)
+	private List<ProductDetails> products;
 	
-//	@OneToOne(cascade= CascadeType.ALL)
+	@MapsId
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="customer_id")
 	private Customer customer;
+	
+	
 	
 	public Cart() {}
 
-	public Cart(int cartId, List<Product> products) {
+	public Cart(int cartId, List<ProductDetails> products) {
 		super();
 		this.cartId = cartId;
 		this.products = products;
+	}
+	
+	public void addItem(ProductDetails product) {
+		this.products.add(product);
+	}
+	public void removeItem(ProductDetails product) {
+		this.products.remove(product);
 	}
 
 	
