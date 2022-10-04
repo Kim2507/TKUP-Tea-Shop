@@ -1,7 +1,10 @@
 package com.capstone.TeaShop.model;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import lombok.*;
 import javax.persistence.*;
 
@@ -13,8 +16,9 @@ public class Cart implements Serializable{
 	@GeneratedValue(strategy= GenerationType.IDENTITY )
 	private int cartId;
 	
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="cart", orphanRemoval=true)
-	private List<ProductDetails> products;
+	//Key is Product and value is quantity of that product
+	@OneToMany(cascade=CascadeType.ALL, targetEntity = ProductDetails.class,mappedBy="cart", orphanRemoval=true)
+	private Map<ProductDetails, Integer> products;
 	
 	@MapsId
 	@OneToOne(fetch=FetchType.LAZY)
@@ -25,14 +29,14 @@ public class Cart implements Serializable{
 	
 	public Cart() {}
 
-	public Cart(int cartId, List<ProductDetails> products) {
+	public Cart(int cartId, HashMap<ProductDetails, Integer> products) {
 		super();
 		this.cartId = cartId;
 		this.products = products;
 	}
 	
 	public void addItem(ProductDetails product) {
-		this.products.add(product);
+		this.products.put(product, product.getQuantity());
 	}
 	public void removeItem(ProductDetails product) {
 		this.products.remove(product);

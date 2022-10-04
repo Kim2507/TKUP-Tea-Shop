@@ -1,6 +1,7 @@
 package com.capstone.TeaShop.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,8 +11,10 @@ import com.capstone.TeaShop.model.Cart;
 import com.capstone.TeaShop.model.ProductDetails;
 import com.capstone.TeaShop.model.User;
 import com.capstone.TeaShop.repository.CartRepository;
+import com.capstone.TeaShop.repository.ProductRepository;
 import com.capstone.TeaShop.repository.UserRepository;
 import com.capstone.TeaShop.services.CartService;
+import com.capstone.TeaShop.services.ProductService;
 
 @Controller
 public class AppController {
@@ -44,7 +47,7 @@ public class AppController {
 	}
 	
 	@GetMapping("/shopping")
-	public String listUsers(Model model) {
+	public String showShoppingPage(Model model) {
 	     
 	    return "shopping";
 	}
@@ -59,13 +62,11 @@ public class AppController {
 	    return "cart";
 	}
 	
-	@GetMapping("/addingToCart")
-	public String addingItemToCart(ProductDetails product, Model model) {
-		product = product1;
-		//cartService.addItemToCart(product);
-		model.addAttribute("addedProduct",product);
-		return "cart";
-	}
+	
+	
+	
+	
+	
 	
 	
 	

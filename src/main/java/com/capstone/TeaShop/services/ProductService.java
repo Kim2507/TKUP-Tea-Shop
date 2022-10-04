@@ -26,8 +26,15 @@ public class ProductService {
 	}
 
 	// Get product by ID
-	public Optional<ProductDetails> getTutorialById(int id) {
+	public Optional<ProductDetails> getProductById(int id) {
 		return product_repo.findById(id);
+		
+		
+	 }
+	
+	// ProductDetails type Get product by ID
+	public ProductDetails getProductByIdP(int id) {
+		return product_repo.getReferenceById(id);
 	}
 
 	// Adding a single product into DB

@@ -37,7 +37,7 @@
         <div class="column">
           <div class="title">LEMON GINGER</div>
           <img class = "img" th:src="@{/images/lemon-ginger.png}" alt="lemon-ginger">
-          <button onclick="alert('Successfully added to cart')" th:action="@{/addingToCart}" method="get" th:object=${product}>ADD TO CART</button>
+          <button th:action="@{/addingToCart/lg}" method="get"=>ADD TO CART</button>
         </div>
         <div class="column">
             <div class="title">CHAMOMILE</div>
@@ -83,10 +83,10 @@
         <div class="column">
           <div class="title">WHITE TEA SAKURA</div>
           <img class = "img" th:src="@{/images/whitetea.png}" alt="lemon-ginger">
-          <butto onclick="alert('Successfully added to cart')";n>ADD TO CART</butto>
+          <butto onclick="alert('Successfully added to cart')";>ADD TO CART</butto>
         </div>
       </div>
-    
+  
     <footer>
       <div class="footer">
         <p class="contactus">CONTACT US</p>
