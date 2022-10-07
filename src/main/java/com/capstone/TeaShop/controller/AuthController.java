@@ -35,7 +35,7 @@ public class AuthController {
         return "login";
     }
     
-    @PostMapping("/login")
+    @PostMapping("/loggedIn")
     public String loginSuccess(){
         return "shopping";
     }
