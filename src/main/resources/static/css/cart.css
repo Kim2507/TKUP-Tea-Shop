@@ -1,1 +1,270 @@
 @charset "ISO-8859-1";
+
+body{
+    
+    min-height: 100vh;
+    vertical-align: middle;
+    display: flex;
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.grid-container{
+    margin: auto;
+    background:linear-gradient( 251.8deg,  rgba(127,230,130,1) 40.1%, #bbb 94% );
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+        "cart cart"
+        "cus_info blank";
+    /* height: 175vh;
+    font-weight: bold; */
+    width: 100%;
+  
+  }
+
+ #cart{
+    display:flex;
+    grid-area: cart;
+    color: white;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  #cus_info{
+    grid-area: cus_info;
+    width: 80%;
+    margin-left: 20px;
+  
+  }
+
+  #checkout{
+    grid-area: checkout;
+    width: 100%;
+    margin-right: 20px;
+    margin-top: 20px;
+  
+  }
+
+  #blank{
+    background-image: url(https://media1.giphy.com/media/muJhgm6uTO59MuYz7q/giphy.gif?cid=ecf05e47rk0q1f3los5jtigfgibqddmqsg93e3u4dcfwb5wt&rid=giphy.gif&ct=g);
+    background-position: contain;
+    background-repeat: no-repeat; 
+    grid-area: blank;
+    width: 100%;
+    margin-right: 20px;
+    margin-top: 50px;
+  
+  }
+  
+  
+  
+.title{
+    margin-bottom: 5vh;
+}
+
+.card{
+    margin: auto;
+    margin-top: 10px;
+    /* max-width: 950px; */
+    width: 50%;
+    box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 1rem;
+    border: transparent;
+}
+@media(max-width:767px){
+    .card{
+        margin: 3vh auto;
+    }
+}
+
+.col-md-8 cart {
+    
+    margin-top: 40px;
+    margin-left: 50px;
+    
+}
+
+#address {
+    display:inline-block;
+    width:50%;
+}
+
+#city {
+    display:inline-block;
+    width:45%;
+    margin: auto;
+    margin-right: 0%;
+   
+}
+
+#state {
+    display:inline-block;
+    width:45%;
+}
+
+#zipcode {
+    display:inline-block;
+    width:45%;
+    margin: auto;
+    margin-right: 0%;
+   
+}
+
+#exp {
+    display:inline-block;
+    width:50%;
+}
+
+#cvv {
+    display:inline-block;
+    width:45%;
+    margin: auto;
+    margin-right: 0%;
+   
+}
+
+.input-group{
+    margin-left: 20px;
+
+}
+
+
+
+.btn-primary{
+    margin-left: 20px;
+    width: 100px;
+}
+
+
+.cart{
+    background-color: #fff;
+    padding: 4vh 5vh;
+    border-bottom-left-radius: 1rem;
+    border-top-left-radius: 1rem;
+}
+/*@media(max-width:767px){
+    .cart{
+        padding: 4vh;
+        border-bottom-left-radius: unset;
+        border-top-right-radius: 1rem;
+    }
+} */
+.summary{
+    /* background-color: #ddd; */
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    width:80%;
+    /* padding: 4vh; */
+    /* color: rgb(65, 65, 65); */
+}
+
+
+@media(max-width:767px){
+    .summary{
+    border-top-right-radius: unset;
+    border-bottom-left-radius: 1rem;
+    }
+}
+.summary .col-2{
+    padding: 0;
+}
+.summary .col-10
+{
+    padding: 0;
+}.row{
+    margin: 15px;
+    color: black;
+}
+.title b{
+    font-size: 1.5rem;
+}
+.main{
+    margin: 0;
+    padding: 2vh 0;
+    width: 100%;
+}
+.col-2, .col{
+    padding: 0 1vh;
+}
+a{
+    padding: 0 1vh;
+}
+.close{
+    margin-left: auto;
+    font-size: 0.7rem;
+}
+img{
+    width: 3.5rem;
+}
+.back-to-shop{
+    margin-top: 4.5rem;
+}
+h5{
+    margin-top: 4vh;
+}
+hr{
+    margin-top: 1.25rem;
+}
+form{
+    padding: 2vh 0;
+}
+select{
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    padding: 1.5vh 1vh;
+    margin-bottom: 4vh;
+    outline: none;
+    width: 100%;
+    background-color: rgb(247, 247, 247);
+}
+input{
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    padding: 1vh;
+    margin-bottom: 4vh;
+    outline: none;
+    width: 100%;
+    background-color: rgb(247, 247, 247);
+}
+input:focus::-webkit-input-placeholder
+{
+      color:transparent;
+}
+
+
+.btn{
+    background-color: orange;
+    border-color: #000;
+    color: white;
+    width: 100%;
+    font-size: 0.7rem;
+    margin-top: 4vh;
+    padding: 1vh;
+    border-radius: 0;
+}
+.btn:focus{
+    box-shadow: none;
+    outline: none;
+    box-shadow: none;
+    color: white;
+    -webkit-box-shadow: none;
+    -webkit-user-select: none;
+    transition: none; 
+}
+.btn:hover{
+    color: white;
+}
+a{
+    color: black; 
+}
+a:hover{
+    color: black;
+    text-decoration: none;
+}
+ #code{
+    background-image: linear-gradient(to left, rgba(255, 255, 255, 0.253) , rgba(255, 255, 255, 0.185)), url("https://img.icons8.com/small/16/000000/long-arrow-right.png");
+    background-repeat: no-repeat;
+    background-position-x: 95%;
+    background-position-y: center;
+}

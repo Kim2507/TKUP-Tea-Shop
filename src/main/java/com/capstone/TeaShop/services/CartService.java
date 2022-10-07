@@ -1,6 +1,7 @@
 package com.capstone.TeaShop.services;
 
 import java.util.List;
+
 import java.util.Optional;
 import java.util.function.Function;
 
@@ -11,8 +12,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.query.FluentQuery.FetchableFluentQuery;
 
-import com.capstone.TeaShop.model.Cart;
 import com.capstone.TeaShop.repository.CartRepository;
+
 
 
 

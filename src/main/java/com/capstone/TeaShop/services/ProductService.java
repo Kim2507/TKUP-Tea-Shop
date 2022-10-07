@@ -58,7 +58,7 @@ public class ProductService {
 			updated_product.setDescription(product.getDescription());
 			updated_product.setPrice(product.getPrice());
 			updated_product.setQuantity(product.getQuantity());
-			updated_product.setOrder(product.getOrder());
+//			updated_product.setOrder(product.getOrder());
 			updated_product.setCart(product.getCart());
 			product_repo.save(updated_product);
 		}

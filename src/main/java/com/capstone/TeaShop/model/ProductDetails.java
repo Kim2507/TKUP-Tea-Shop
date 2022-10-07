@@ -1,35 +1,33 @@
 package com.capstone.TeaShop.model;
 
 import java.io.Serializable;
-
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
-import javax.persistence.*;
+import java.util.List;
+import jakarta.persistence.*;
 import lombok.*;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 @Entity 
-@Table
+@Table(name="products")
 public class ProductDetails implements Serializable {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY )
-	private int productId;
+	private Integer productId;
 	private String name;
 	private String description;
 	private double price;
 	private int quantity;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="order_id")
-	private OrderDetails order;
+	@JoinColumn(name="order_id", nullable=true)
+	private OrderDetails orders;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="cart_id")
+	@JoinColumn(name="cart_id",nullable=true)
 	private Cart cart;
 	
-	public ProductDetails() {}
+	
 
 	public ProductDetails(String name, String description, double price, int quantity) {
 		super();

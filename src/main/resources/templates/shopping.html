@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
+<!-- <meta charset="ISO-8859-1"> -->
+<meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <script
@@ -25,7 +26,7 @@
             </div>
           </li>
           <li class="active"><a th:href="@{/login}">Log In</a></li>
-          <li class="active"><a th:href="@{/cart}">Cart</a></li>
+          <li class="active"><a th:href="@{/addCustomer}">Cart</a></li>
         </ul>
       </nav>
     </header>
@@ -37,7 +38,7 @@
         <div class="column">
           <div class="title">LEMON GINGER</div>
           <img class = "img" th:src="@{/images/lemon-ginger.png}" alt="lemon-ginger">
-          <button th:action="@{/addingToCart/lg}" method="get"=>ADD TO CART</button>
+          <button >ADD TO CART</button>
         </div>
         <div class="column">
             <div class="title">CHAMOMILE</div>

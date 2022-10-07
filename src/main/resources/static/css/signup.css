@@ -74,6 +74,11 @@ body {
   .container{
     display:block;
 }
-  
+ 
+ 
+.container{
+	margin-top:1px;
+	margin-bottom:1px;
+}
 
   

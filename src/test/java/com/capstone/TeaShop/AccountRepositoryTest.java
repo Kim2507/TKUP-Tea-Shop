@@ -31,7 +31,7 @@ public class AccountRepositoryTest {
 		acc.setPassword("321defew");
 		
 		User savedAcc = user_repo.save(acc);
-		User existedAcc = entityManager.find(User.class, savedAcc.getUid());
+		User existedAcc = entityManager.find(User.class, savedAcc.getId());
 		
 		assertThat(existedAcc.getEmail()).isEqualTo(acc.getEmail());
 		
