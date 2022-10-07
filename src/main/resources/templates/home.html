@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
+<!-- <meta charset="ISO-8859-1"> -->
+<meta charset="UTF-8">
 <style>
         body {font-family:"Ms Madi", cursive;}
 </style>
@@ -25,7 +26,7 @@
 			<a th:href="@{/register}">SIGN UP</a>
 		</section>
 		<section id="aboutus">
-			<a href="../html/aboutus.html">ABOUT US</a>
+			<a th:href="@{/aboutus}">ABOUT US</a>
 		</section>
 		<section id="product">
 			<a th:href="@{/shopping}">OUR PRODUCTS</a>

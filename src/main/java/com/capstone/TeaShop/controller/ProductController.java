@@ -13,15 +13,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.capstone.TeaShop.model.ProductDetails;
+import com.capstone.TeaShop.repository.ProductRepository;
 import com.capstone.TeaShop.services.ProductService;
 
 
-@Controller
+
 @RestController
 @RequestMapping("/api")
 public class ProductController {
 	@Autowired
 	private ProductService product_service;
+	
+	@Autowired
+	private ProductRepository proRepo;
 	
 	 @GetMapping("/products/{id}")
 	  public Optional<ProductDetails> getProductById(@PathVariable("id") int id) {
@@ -31,8 +35,8 @@ public class ProductController {
 	
 	@PostMapping("/product")
 	   public void createProduct(@RequestBody ProductDetails product) {
-		product_service.addProduct(product);
-	   }
+		proRepo.save(product);
+	  }
 	   
 	   @PostMapping("/products")
 	   public void createProducts(@RequestBody List<ProductDetails> products) {

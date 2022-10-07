@@ -6,8 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.capstone.TeaShop.model.User;
 @Repository
-public interface UserRepository extends JpaRepository<User, Integer> {
-//	@Query("select u from User u where u.email=?1")
-//	User findByEmail(String email);
+public interface UserRepository extends JpaRepository<User, Long> {
+	User findByEmail(String email);
 	
 }

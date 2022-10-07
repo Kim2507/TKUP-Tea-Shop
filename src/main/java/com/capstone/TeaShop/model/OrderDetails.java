@@ -1,18 +1,18 @@
 package com.capstone.TeaShop.model;
 
 import java.io.Serializable;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.persistence.*;
-
+import jakarta.persistence.*;
 import lombok.*;
 
-
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 @Entity
-@Table//(name="OrderKim")
+@Table(name="orders")
 public class OrderDetails implements Serializable {
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY )
@@ -24,14 +24,12 @@ public class OrderDetails implements Serializable {
 	private double total;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="customer_id")
-	private Customer customer;
-	
+	@JoinColumn(name="user_id")
+	private User user;
 	//Key is product and value is quantity of that product in that order
-	@OneToMany(cascade =CascadeType.ALL,targetEntity = ProductDetails.class,mappedBy="order", orphanRemoval=true)
-	private Map<ProductDetails,Integer> order_items;
+	@OneToMany(cascade =CascadeType.ALL,targetEntity = ProductDetails.class,mappedBy="orders", orphanRemoval=true)
+	private Map<ProductDetails,Integer> products;
 	
-	public OrderDetails() {}
 
 	public OrderDetails(double preTax, double total) {
 		super();

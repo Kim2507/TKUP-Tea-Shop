@@ -20,10 +20,14 @@ public class CartController {
 	@Autowired
 	ProductService proService;
 	
-	
+//	@GetMapping("/cart")
+//	public String showCart() {
+//		return "cart";
+//	}
+//	
 	//Add lemon ginger to Cart 
 	@GetMapping("/addingToCart/lg")
-	public String addLGToCart(ProductDetails p,int id,  Model model) {
+	public String addLGToCart(ProductDetails p,Integer id,  Model model) {
 		ProductDetails p1 = proService.getProductByIdP(id);
 		//String name = p1.getName();
 		
@@ -32,5 +36,7 @@ public class CartController {
 		
 		
 	}
+	
+	
 
 }

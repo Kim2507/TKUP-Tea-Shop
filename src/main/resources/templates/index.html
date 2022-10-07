@@ -1,14 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<meta charset="UTF-8">
+<title>Registration and Login System</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+<style>
+body {
+	font-family: "Ms Madi", cursive;
+}
+</style>
+<link rel="stylesheet" th:href="@{/css/home.css}" />
 </head>
 <body>
-<h3 th:ref="@{/list_users}">List All Users</h3>
-<h3 th:ref="@{/register}">Register</h3>
-<h3 th:ref="@{/login}">Login</h3>
+	<div class="grid-container">
+		<main>
+			<section class="welcome">
+				<p>WELCOME to</p>
+				<p>T-KUP</p>
+
+			</section>
+
+		</main>
+		<section id="signup">
+			<a th:href="@{/register}">SIGN UP</a>
+		</section>
+		<section id="aboutus">
+			<a th:href="@{/aboutus}">ABOUT US</a>
+		</section>
+		<section id="product">
+			<a th:href="@{/shopping}">OUR PRODUCTS</a>
+		</section>
+		<section id="info-table">
+			<table>
+				<tr>
+					<td>Store House:</td>
+					<td>
+						<p>Mon-Fri: 10am-9pm</p>
+						<p>Sat-Sun: 10am-8pm</p>
+					</td>
+				</tr>
+				<tr>
+					<td>Email:</td>
+					<td>tkup@gmail.com</td>
+				</tr>
+				<tr>
+					<td>Phone:</td>
+					<td>(1)781-666-8899</td>
+
+				</tr>
+			</table>
+		</section>
 
 
+	</div>
 </body>
 </html>

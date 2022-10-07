@@ -10,7 +10,5 @@ import com.capstone.TeaShop.model.*;
 @Repository
 public interface CartRepository extends JpaRepository<Cart, Integer> {
 	
-////	//CRUD 
-//	//@Autowired
-//	public void updateByCardID(Cart cart);
+
 }
