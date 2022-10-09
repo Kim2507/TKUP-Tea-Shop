@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<tbody method="post" th:action="@{/addToCart}">
+            <tr th:each = "item : ${listProducts}">
+                <td th:text = "${list.name}"></td>
+                <td th:text = "${list.price}"></td>
+            </tr>
+        </tbody>
+
+</body>
+</html>

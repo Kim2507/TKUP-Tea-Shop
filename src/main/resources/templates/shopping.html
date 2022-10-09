@@ -26,8 +26,8 @@
                  <a class ="li" href="#">Tea Pots</a>
             </div>
           </li>
-          <li class="active"><a th:href="@{/login}">Log In</a></li>
-          <li class="active"><a th:href="@{/addCustomer}">Cart</a></li>
+          <!-- <li class="active"><a th:href="@{/login}">Log In</a></li> -->
+          <li class="active"><a th:href="@{/cart1}">Cart</a></li>
         </ul>
       </nav>
     </header>
@@ -39,7 +39,8 @@
         <div class="column">
           <div class="title">LEMON GINGER</div>
           <img class = "img" th:src="@{/images/lemon-ginger.png}" alt="lemon-ginger">
-          <button >ADD TO CART</button>
+          <p class="item-price">$5.5</p>
+          <button type="button" data-action="add-to-cart" method="post" th:action="@{/addToCart}">ADD TO CART</button>
         </div>
         <div class="column">
             <div class="title">CHAMOMILE</div>

@@ -5,8 +5,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.springframework.boot.test.autoconfigure.orm.jpa.*;
 import org.springframework.test.annotation.Rollback;
 
-import com.capstone.TeaShop.model.User;
-import com.capstone.TeaShop.repository.UserRepository;
+import com.kim.TeaShop.model.User;
+import com.kim.TeaShop.repository.UserRepository;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -24,7 +24,14 @@ body{
     width: 100%;
   
   }
-
+  
+  .col-md-4 .summary{
+  	display:inline-block;
+  }
+.cart_content{
+	display: inline-block;
+	width: 50%;
+}
  #cart{
     display:flex;
     grid-area: cart;
@@ -140,6 +147,7 @@ body{
 
 
 .cart{
+	display: inline-block;
     background-color: #fff;
     padding: 4vh 5vh;
     border-bottom-left-radius: 1rem;
