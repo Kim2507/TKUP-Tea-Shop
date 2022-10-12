@@ -8,9 +8,14 @@ import java.util.Map;
 import jakarta.persistence.*;
 import lombok.*;
 
+
+@NamedQuery(name = "getAllOrders", query = "from OrderDetails" )
+
+	
+
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+
 @Entity
 @Table(name="orders")
 public class OrderDetails implements Serializable {
@@ -23,11 +28,13 @@ public class OrderDetails implements Serializable {
 	private double preTax ;
 	private double total;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name="user_id")
 	private User user;
 	//Key is product and value is quantity of that product in that order
-	@OneToMany(cascade =CascadeType.ALL,targetEntity = ProductDetails.class,mappedBy="orders", orphanRemoval=true)
+//	@OneToMany(cascade =CascadeType.ALL,targetEntity = ProductDetails.class,mappedBy="orders",orphanRemoval=true)
+//	//@JoinColumn(name="product_Id")
+	@OneToMany(cascade =CascadeType.ALL,targetEntity = ProductDetails.class,mappedBy="orders",orphanRemoval=true)
 	private Map<ProductDetails,Integer> products;
 	
 
@@ -40,6 +47,57 @@ public class OrderDetails implements Serializable {
 	public void setTotal() {
 		this.total = this.getPreTax() * (1+this.TAX_RATE);
 	}
+
+	public int getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(int orderId) {
+		this.orderId = orderId;
+	}
+
+	public double getPreTax() {
+		return preTax;
+	}
+
+	public void setPreTax(double preTax) {
+		this.preTax = preTax;
+	}
+
+	public double getTotal() {
+		return total;
+	}
+
+	public void setTotal(double total) {
+		this.total = total;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	//@ElementCollection(targetClass = Integer.class)
+	//@MapKeyClass(ProductDetails.class)
+	@OneToMany
+	public Map<ProductDetails, Integer> getProducts() {
+		return products;
+	}
+
+	public void setProducts(Map<ProductDetails, Integer> products) {
+		this.products = products;
+	}
+
+	public double getTAX_RATE() {
+		return TAX_RATE;
+	}
+	
+	
+	
+	
 
 
 	

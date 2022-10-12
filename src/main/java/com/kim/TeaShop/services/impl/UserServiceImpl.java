@@ -7,6 +7,8 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,7 @@ import com.kim.TeaShop.model.Role;
 import com.kim.TeaShop.model.User;
 import com.kim.TeaShop.repository.RoleRepository;
 import com.kim.TeaShop.repository.UserRepository;
+import com.kim.TeaShop.security.CustomUserDetailsService;
 import com.kim.TeaShop.services.UserService;
 
 import lombok.*;
@@ -93,5 +96,20 @@ public class UserServiceImpl implements UserService{
 	        role.setName("ROLE_USER");
 	        return roleRepo.save(role);
 	    }
+	 
+	 public UserDetails getCurrentLoggedInUser(Authentication authentication) {
+		 if(authentication==null) return null;
+		 
+		 UserDetails user = null;
+		 Object principal = authentication.getPrincipal();
+		 
+		 if(principal instanceof CustomUserDetailsService) {
+			 user = ((CustomUserDetailsService) principal).getUser();
+			 
+		 }
+		 return user;
+	 }
+	 
+	
 
 }

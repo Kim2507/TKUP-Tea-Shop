@@ -39,6 +39,8 @@ public class AuthController {
     public String loginSuccess(){
         return "shopping";
     }
+    
+    
 	
 	@GetMapping("/register")
 	public String showRegistrationForm(Model model) {

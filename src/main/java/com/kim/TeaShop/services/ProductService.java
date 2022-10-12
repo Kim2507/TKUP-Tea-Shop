@@ -2,102 +2,93 @@ package com.kim.TeaShop.services;
 
 import java.util.ArrayList;
 
+
+
 import java.util.List;
 import java.util.Optional;
-
+import java.util.function.Function;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.repository.query.FluentQuery.FetchableFluentQuery;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.kim.TeaShop.dto.UserDto;
 import com.kim.TeaShop.model.ProductDetails;
+import com.kim.TeaShop.repository.ProductRepository;
+
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.Query;
 
 
 
 
-
-public interface ProductService {
+@Service
+//@Transactional(readOnly = true)
+public class ProductService{
 	
-	// Create
-	//void saveProduct(ProductDetails product); // REST supports POST by default
-	//Read
-    ProductDetails findByName(String name);
+	@Autowired
+	ProductRepository productRepo;
 	
-    //ProductDetails findById(Integer id);
-    //List<ProductDetails> findAllProducts(); // REST supports Get default
-    //Update
-    void updateById(Integer id,ProductDetails product);
-    //Delete 
-    void deleteById(Integer id);
-//	@Autowired
-//	ProductRepository product_repo;
+	@PersistenceContext
+    EntityManager entityManager; 
+	
+	
+	public ProductDetails createProduct(ProductDetails product) {
+		return productRepo.save(product);
+		
+	}
+	
+	public List<ProductDetails> getAllProducts() {
+		List<ProductDetails> products = new ArrayList<>();
+		products = productRepo.findAll();
+		return products;
+	}
+	
+	public void deleteProducts() {
+		productRepo.deleteAll();
+	}
+	
+	public void deleteProduct(Integer id) {
+		productRepo.deleteById(id);
+	}
+	
+	public Optional<ProductDetails> findById(Integer productId) {
+      return productRepo.findById(productId);
+  }
+	
+	public ProductDetails findById2 (Integer id) {
+		return productRepo.getReferenceById(id);
+	}
+
+//	@Override
+//	public ProductDetails findByName(String name) {
+//		Query query = entityManager.createNativeQuery("SELECT p.* FROM teashop2.products as p " +
+//	            "WHERE p.name LIKE ?", ProductDetails.class);
+//	    query.setParameter(1, name + "%");
 //
-//	// Get all products
-//	public List<ProductDetails> getAllProducts() {
-//		List<ProductDetails> tutorials = new ArrayList<ProductDetails>();
-//		product_repo.findAll().forEach(tutorials::add);
-//		return tutorials;
+//	    return (ProductDetails) query.getSingleResult();
+//		//return productRepo.findByName(name);
 //	}
 //
-//	// Get product by ID
-//	public Optional<ProductDetails> getProductById(int id) {
-//		return product_repo.findById(id);
-//		
-//		
-//	 }
+//	@Override
+//	public ProductDetails findPById(Integer id) {
+//		Query query = entityManager.createNativeQuery("SELECT p.* FROM teashop2.products as p " +
+//	            "WHERE p.productId = ?", ProductDetails.class);
+//	    query.setParameter(1, id);
+//
+//	    return (ProductDetails) query.getSingleResult();
+//	}
+//
 //	
-//	// ProductDetails type Get product by ID
-//	public ProductDetails getProductByIdP(int id) {
-//		return product_repo.getReferenceById(id);
-//	}
-//
-//	// Adding a single product into DB
-//	public void addProduct(ProductDetails p) {
-//		product_repo.save(p);
-//	}
-//
-//	// Adding a array of product into DB
-//	public void addProducts(List<ProductDetails> p) {
-//		product_repo.saveAll(p);
-//	}
-//
-//	// Updating a product
-//	public void updateProduct(int id, ProductDetails product) {
-//		Optional<ProductDetails> productData = product_repo.findById(id);
-//
-//		if (productData.isPresent()) {
-//			ProductDetails updated_product = productData.get();
-//			updated_product.setProductId(id);
-//			updated_product.setName(product.getName());
-//			updated_product.setDescription(product.getDescription());
-//			updated_product.setPrice(product.getPrice());
-//			updated_product.setQuantity(product.getQuantity());
-////			updated_product.setOrder(product.getOrder());
-//			updated_product.setCart(product.getCart());
-//			product_repo.save(updated_product);
-//		}
-//	}
-//
-//	// Delete product
-//	public void deleteProduct(int id) {
-//		product_repo.deleteById(id);
-//	}
-//
-//	// Delete products
-//	public void deleteAllProducts() {
-//		product_repo.deleteAll();
-//	}
-//
-////	public ResponseEntity<List<Tutorial> findByPublished() {
-////	  try {
-////	      List<Tutorial> tutorials = tutorialRepository.findByPublished(true);
-////
-////	      if (tutorials.isEmpty()) {
-////	          return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-////	      }
-////	      return new ResponseEntity<>(tutorials, HttpStatus.OK);
-////	  } catch (Exception e) {
-////	      return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-////	  }
-////	}
-
+//	
+//	
+	
 
 }

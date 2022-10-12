@@ -24,7 +24,7 @@ public class SpringSecurity {
         http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/register/**").permitAll()
-                .antMatchers("/index").permitAll()
+                .antMatchers("/index","/cart3").permitAll()
                 .antMatchers("/users").hasRole("USER")
                 .and()
                 .formLogin(

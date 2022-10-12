@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.context.annotation.Bean;
+
 import lombok.*;
 import jakarta.persistence.*;
 
@@ -20,13 +22,13 @@ public class Cart implements Serializable{
 	private Long cartId;
 	
 	//Key is Product and value is quantity of that product
-	@OneToMany(cascade=CascadeType.ALL, targetEntity = ProductDetails.class,mappedBy="cart", orphanRemoval=true)
+	
+	@OneToMany(cascade=CascadeType.ALL,targetEntity = ProductDetails.class,mappedBy="cart", orphanRemoval=true)
+	//@OneToMany
 	private Map<ProductDetails, Integer> products;
 	
-	@MapsId
-	@OneToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="user_id")
-	private User user;
+	//@MapsId
+	
 	
 	
 	public void addItem(ProductDetails product) {

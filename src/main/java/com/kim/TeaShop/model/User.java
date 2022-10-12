@@ -30,9 +30,14 @@ public class User implements Serializable{
 	@Column(nullable=false)
 	private String password;
 	
+	@OneToOne
+	@JoinColumn(name="cart_id")
+	private Cart cart;
 
 	
+	
 	@OneToMany(cascade= CascadeType.ALL,targetEntity = OrderDetails.class, mappedBy="user", orphanRemoval=true)
+	//@OneToMany
 	private List<OrderDetails> orders;
 	
 	@ManyToMany(fetch=FetchType.EAGER,cascade=CascadeType.ALL)

@@ -28,9 +28,8 @@ public class UserServiceImplTest {
 	@Test
 	public void getUserTest() {
 		User user = new User();
-		user.setEmail("halit@gmail.com");
-		user.setCity("Saugus");
-		User actual = userService.findUserByEmail("halit@gmail.com");
-		assertEquals(user.getAddress(),actual.getEmail());
+		user.setEmail("kim@gmail.com");
+		User actual = userService.findUserByEmail("kim@gmail.com");
+		assertEquals(user.getEmail(),actual.getEmail());
 	}
 }
